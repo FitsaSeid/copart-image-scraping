@@ -1,8 +1,10 @@
 # Use a Python base image
 FROM python:3.9-slim
 
-# Install system dependencies required by Playwright
+# Install system dependencies required by Playwright and browsers
 RUN apt-get update && apt-get install -y \
+    libnss3 \
+    libx11-xcb1 \
     libdrm2 \
     libgbm1 \
     libasound2 \
@@ -14,7 +16,6 @@ RUN apt-get update && apt-get install -y \
     libxdamage1 \
     libxrandr2 \
     libxss1 \
-    libnss3 \
     libgtk-3-0 \
     libxshmfence1 \
     libwayland-client0 \
@@ -25,7 +26,7 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 \
     libcairo2 \
     libcairo-gobject2 \
-    && apt-get clean
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
