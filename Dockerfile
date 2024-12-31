@@ -1,31 +1,35 @@
 # Use a Python base image
 FROM python:3.9-slim
 
-# Install system dependencies required by Playwright and browsers
+# Install system dependencies required by Playwright
 RUN apt-get update && apt-get install -y \
-    libnss3 \
-    libx11-xcb1 \
-    libdrm2 \
-    libgbm1 \
-    libasound2 \
-    libatk-bridge2.0-0 \
-    libatk1.0-0 \
-    libcups2 \
-    libdbus-1-3 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxrandr2 \
-    libxss1 \
-    libgtk-3-0 \
-    libxshmfence1 \
-    libwayland-client0 \
-    libxkbcommon0 \
-    libxrender1 \
-    libxtst6 \
-    libpangocairo-1.0-0 \
-    libpango-1.0-0 \
-    libcairo2 \
-    libcairo-gobject2 \
+    libgstreamer1.0-0 \
+    libatomic1 \
+    libxslt1.1 \
+    libwoff1 \
+    libvpx7 \
+    libevent-2.1-7 \
+    libopus0 \
+    libgstreamer-plugins-base1.0-0 \
+    libgstaudio-1.0-0 \
+    libgstgl-1.0-0 \
+    libgstpbutils-1.0-0 \
+    libgstvideo-1.0-0 \
+    libgstcodecparsers-1.0-0 \
+    libgstfft-1.0-0 \
+    libflite1 \
+    libwebpdemux2 \
+    libavif15 \
+    libharfbuzz-icu0 \
+    libwebpmux3 \
+    libenchant-2-2 \
+    libsecret-1-0 \
+    libhyphen0 \
+    libmanette-0.2-0 \
+    libpsl5 \
+    libnghttp2-14 \
+    libgles2-mesa \
+    libx264-155 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
