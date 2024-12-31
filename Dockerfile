@@ -1,4 +1,3 @@
-# Use a more complete Python image for broader compatibility
 FROM python:3.9-bullseye
 
 # Install system dependencies for Playwright
@@ -9,8 +8,7 @@ RUN apt-get update && apt-get install -y \
     libgtk-3-0 libxdamage1 libxshmfence1 libnspr4 libxss1 libxext6 \
     libwayland-client0 libwayland-cursor0 libwayland-egl1 libenchant-2-2 \
     libgles2-mesa libxkbcommon0 \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
@@ -27,5 +25,5 @@ RUN pip install playwright && playwright install
 # Expose port 5000 for the Flask app
 EXPOSE 5000
 
-# Command to run the Flask app
-CMD ["gunicorn", "api:app", "--bind", "0.0.0.0:5000"]
+# Run the app using Gunicorn
+CMD ["gunicorn", "api:app", "--bind", "0.0.0.0:5000", "--log-level", "debug"]
