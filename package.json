@@ -1,0 +1,16 @@
+{
+    "name": "flask-playwright-api",
+    "version": "1.0.0",
+    "description": "Flask API deployed on Vercel using Playwright for web scraping.",
+    "scripts": {
+      "vercel-build": "playwright install"
+    },
+    "dependencies": {
+      "playwright": "^1.37.0"
+    },
+    "engines": {
+      "node": ">=16.0.0"
+    },
+    "devDependencies": {}
+  }
+  
